@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "78869228697",
+    "project_id": "lasuchtl-8f85b",
+    "storage_bucket": "lasuchtl-8f85b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78869228697:android:a08e96905bc9cdc3b81c08",
+        "android_client_info": {
+          "package_name": "com.example.bloc_auth_flow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8V38ZDiJDdj6GctK9TZOjcY-cKQ2oW4w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78869228697:android:92796c531e7a7171b81c08",
+        "android_client_info": {
+          "package_name": "com.example.lasuch_tl"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8V38ZDiJDdj6GctK9TZOjcY-cKQ2oW4w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
