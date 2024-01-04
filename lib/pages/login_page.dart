@@ -1,3 +1,4 @@
+import 'package:bloc_auth_flow/auth/auth_service.dart';
 import 'package:bloc_auth_flow/components/my_botton.dart';
 import 'package:bloc_auth_flow/components/my_textfield.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,25 @@ class LoginPage extends StatelessWidget {
   void Function()? onTap;
 
   //login method
-  void login() {}
+  void login(BuildContext context) async {
+    //auth service
+    final authService = AuthService();
+
+    //try login
+    try {
+      await authService.singInWithEmailPassword(
+        _emailControl.text,
+        _pwControl.text,
+      );
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(e.toString()),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +82,10 @@ class LoginPage extends StatelessWidget {
               height: 25,
             ),
             // login button
-            MyButton(text: "Login", onTap: login),
+            MyButton(
+              text: "Login",
+              onTap: () => login(context),
+            ),
 
             //register now
             const SizedBox(

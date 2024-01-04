@@ -1,3 +1,4 @@
+import 'package:bloc_auth_flow/auth/auth_service.dart';
 import 'package:bloc_auth_flow/components/my_botton.dart';
 import 'package:bloc_auth_flow/components/my_textfield.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,33 @@ class RegisterPage extends StatelessWidget {
 
   //register method
 
-  void register() {}
+  void register(BuildContext context) {
+    //auth service
+    final _auth = AuthService();
+
+    //passwords match -> create user
+    if (_pwControl.text == _pwConfirmControl.text) {
+      try {
+        _auth.singUpWithEmailPassword(_emailControl.text, _pwControl.text);
+      } catch (e) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text(e.toString()),
+          ),
+        );
+      }
+    } else {
+      showDialog(
+        context: context,
+        builder: (context) => const AlertDialog(
+          title: Text('Passwords do now match'),
+        ),
+      );
+    }
+
+    // pasword dont match -> tell user to fix
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +101,10 @@ class RegisterPage extends StatelessWidget {
               height: 25,
             ),
             // login button
-            MyButton(text: "Register", onTap: register),
+            MyButton(
+              text: "Register",
+              onTap: () => register(context),
+            ),
 
             //register now
             const SizedBox(
