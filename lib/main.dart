@@ -1,5 +1,5 @@
-import 'package:bloc_auth_flow/auth/auth_gate.dart';
-import 'package:bloc_auth_flow/auth/login_or_register.dart';
+import 'package:bloc_auth_flow/services/auth/auth_gate.dart';
+import 'package:bloc_auth_flow/services/auth/login_or_register.dart';
 import 'package:bloc_auth_flow/firebase_options.dart';
 import 'package:bloc_auth_flow/pages/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';

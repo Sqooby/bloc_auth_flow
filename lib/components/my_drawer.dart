@@ -1,4 +1,4 @@
-import 'package:bloc_auth_flow/auth/auth_service.dart';
+import 'package:bloc_auth_flow/services/auth/auth_service.dart';
 import 'package:bloc_auth_flow/pages/settings_page.dart';
 import 'package:flutter/material.dart';
 
