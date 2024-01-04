@@ -6,11 +6,13 @@ class LoginPage extends StatelessWidget {
   //email na pw text controllers
   final TextEditingController _emailControl = TextEditingController();
   final TextEditingController _pwControl = TextEditingController();
-  LoginPage({super.key});
+  LoginPage({super.key, required this.onTap});
+
+  //tap to go to register page
+  void Function()? onTap;
 
   //login method
   void login() {}
-  void register() {}
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,7 @@ class LoginPage extends StatelessWidget {
 
             // emial textfiled
             MyTextField(
-              hintText: 'email',
+              hintText: 'Email',
               obscureText: false,
               controller: _emailControl,
             ),
@@ -53,7 +55,7 @@ class LoginPage extends StatelessWidget {
 
             // pw textfiled
             MyTextField(
-              hintText: 'password',
+              hintText: 'Password',
               obscureText: true,
               controller: _pwControl,
             ),
@@ -61,7 +63,7 @@ class LoginPage extends StatelessWidget {
               height: 25,
             ),
             // login button
-            MyButton(text: "login", onTap: login),
+            MyButton(text: "Login", onTap: login),
 
             //register now
             const SizedBox(
@@ -77,7 +79,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 GestureDetector(
-                    onTap: register,
+                    onTap: onTap,
                     child: Text(
                       'Register now',
                       style: TextStyle(

@@ -3,14 +3,16 @@ import 'package:bloc_auth_flow/components/my_textfield.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatelessWidget {
-  RegisterPage({super.key});
+  RegisterPage({super.key, required this.onTap});
 
   final TextEditingController _emailControl = TextEditingController();
   final TextEditingController _pwControl = TextEditingController();
   final TextEditingController _pwConfirmControl = TextEditingController();
+  //tap to go to login page
+  void Function()? onTap;
 
-  //login method
-  void login() {}
+  //register method
+
   void register() {}
 
   @override
@@ -32,7 +34,7 @@ class RegisterPage extends StatelessWidget {
               height: 20,
             ),
             Text(
-              "Welcome back, you've been missed?",
+              "Let's create account for you?",
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 16,
@@ -44,7 +46,7 @@ class RegisterPage extends StatelessWidget {
 
             // emial textfiled
             MyTextField(
-              hintText: 'email',
+              hintText: 'Email',
               obscureText: false,
               controller: _emailControl,
             ),
@@ -54,7 +56,7 @@ class RegisterPage extends StatelessWidget {
 
             // pw textfiled
             MyTextField(
-              hintText: 'password',
+              hintText: 'Password',
               obscureText: true,
               controller: _pwControl,
             ),
@@ -64,7 +66,7 @@ class RegisterPage extends StatelessWidget {
 
             // pw textfiled
             MyTextField(
-              hintText: 'password',
+              hintText: 'Confirm password',
               obscureText: true,
               controller: _pwConfirmControl,
             ),
@@ -72,7 +74,7 @@ class RegisterPage extends StatelessWidget {
               height: 25,
             ),
             // login button
-            MyButton(text: "register", onTap: register),
+            MyButton(text: "Register", onTap: register),
 
             //register now
             const SizedBox(
@@ -82,15 +84,15 @@ class RegisterPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Not a member? ",
+                  "Already have an account? ",
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
                 GestureDetector(
-                    onTap: register,
+                    onTap: onTap,
                     child: Text(
-                      'Register now',
+                      'Login now',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Theme.of(context).colorScheme.primary,
