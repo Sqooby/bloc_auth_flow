@@ -101,16 +101,17 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 GestureDetector(
-                    onTap: onTap,
-                    child: Text(
-                      'Register now',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                    ))
+                  onTap: onTap,
+                  child: Text(
+                    'Register now',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                  ),
+                ),
               ],
-            )
+            ),
           ],
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthService {
   //instance auth& firestore
@@ -59,6 +60,38 @@ class AuthService {
 
   Future<void> signOut() async {
     return await _auth.signOut();
+  }
+
+  //sing in with Google
+
+  Future<UserCredential> singInWithGoogle() async {
+    // begin interactive sign in process
+
+    final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
+
+    //obtain auth detafil from request
+
+    final GoogleSignInAuthentication gAuth = await gUser!.authentication;
+
+    //create a new credentail for user
+
+    final userCredential = GoogleAuthProvider.credential(
+      accessToken: gAuth.accessToken,
+      idToken: gAuth.idToken,
+    );
+
+    //save data in firebase
+
+    print(gUser.id);
+    print(gUser.email);
+    _firestore.collection('Users').doc(gUser.id).set({
+      'uid': gUser.id,
+      'email': gUser.email,
+    });
+
+    //final, lets sign in
+
+    return await FirebaseAuth.instance.signInWithCredential(userCredential);
   }
 
   //errors

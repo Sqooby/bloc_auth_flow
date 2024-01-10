@@ -111,6 +111,25 @@ class RegisterPage extends StatelessWidget {
               height: 25,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                GestureDetector(
+                  onTap: () => AuthService().singInWithGoogle(),
+                  child: Image.asset(
+                    'lib/assets/google_icon.png',
+                    height: 75,
+                  ),
+                ),
+                Image.asset(
+                  'lib/assets/fb_icon.png',
+                  height: 80,
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
